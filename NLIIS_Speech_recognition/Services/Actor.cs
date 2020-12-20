@@ -7,8 +7,8 @@ namespace NLIIS_Speech_recognition.Services
         private readonly IEnumerable<Action> _actions = new List<Action>
         {
             new CreateNoteAction(),
-            new PlayMusicAction(),
-            new CameraCaptionAction()
+            new PlayAuthorCompositionsAction(),
+            new CreateEssayAction()
         };
 
         public string Act(string stringAction, string language)

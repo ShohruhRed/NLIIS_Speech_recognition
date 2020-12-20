@@ -23,7 +23,13 @@ namespace NLIIS_Speech_recognition
 
         private void Help_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(string.Empty, "Help");
+            MessageBox.Show("Click Start to start recording of a command\nClick Stop to stop the recording\n" +
+                            "Then click Analyze to see the text of the command recognized\n" +
+                            "If command can be performed, Act button will start corresponding action\n\n" +
+                            "Supported actions:\n" +
+                            "\tPlay authors composition (включи произведения Чехова)\n" +
+                            "\tCreating note about authors (создай заметку об авторе Пушкин)\n" +
+                            "\tCreating an essay of author's composition (создай реферат по произведению Сильмариллион Толкина)", "Help");
         }
         
         private void Authors_Click(object sender, RoutedEventArgs e)

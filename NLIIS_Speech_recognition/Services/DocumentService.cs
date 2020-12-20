@@ -10,6 +10,18 @@ namespace NLIIS_Speech_recognition.Services
     {
         public static string Language { get; set; } = "Russian";
         
+        public static string FromFile(string path)
+        {
+            try
+            {
+                return File.ReadAllText(path);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        
         public static string ToFile(string text, string name)
         {
             var path = $"D:\\{name}.txt";

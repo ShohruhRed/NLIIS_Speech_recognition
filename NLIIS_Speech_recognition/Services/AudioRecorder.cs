@@ -36,7 +36,9 @@ namespace NLIIS_Speech_recognition.Services
             _sourceStream = new WaveIn
             {
                 DeviceNumber = _inputDeviceIndex,
-                WaveFormat = new WaveFormat(44100, WaveIn.GetCapabilities(_inputDeviceIndex).Channels)
+                WaveFormat = new WaveFormat(
+                    44100,
+                    WaveIn.GetCapabilities(_inputDeviceIndex).Channels)
             };
 
             _sourceStream.DataAvailable += SourceStreamDataAvailable;
