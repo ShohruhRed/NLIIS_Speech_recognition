@@ -8,12 +8,7 @@ namespace NLIIS_Speech_recognition.Services
 {
     public static class DocumentService
     {
-        public static string Language { get; set; }
-        
-        public static string FromFile(string path)
-        {
-            return File.ReadAllText(path);
-        }
+        public static string Language { get; set; } = "Russian";
         
         public static string ToFile(string text, string name)
         {
@@ -77,7 +72,17 @@ namespace NLIIS_Speech_recognition.Services
             return Language switch
             {
                 "English" => "[a-zA-Z\\-]{3,}",
-                "Deutsch" => "[a-zA-ZäöüÄÖÜß\\-]{3,}",
+                "Russian" => "[а-яА-Я\\-]{3,}",
+                _ => throw new ArgumentException($"Language {Language} is not supported")
+            };
+        }
+
+        public static string GetSymbolsMatchPattern()
+        {
+            return Language switch
+            {
+                "English" => "[a-zA-Z\\-]",
+                "Russian" => "[а-яА-Я\\-]",
                 _ => throw new ArgumentException($"Language {Language} is not supported")
             };
         }

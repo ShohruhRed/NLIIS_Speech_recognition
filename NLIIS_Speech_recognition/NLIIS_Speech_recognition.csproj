@@ -6,7 +6,11 @@
     </PropertyGroup>
     
     <ItemGroup>
+      <PackageReference Include="Emgu.CV" Version="4.4.0.4099" />
+      <PackageReference Include="Emgu.CV.runtime.windows" Version="4.4.0.4099" />
+      <PackageReference Include="Google.Cloud.Speech.V1" Version="2.1.0" />
       <PackageReference Include="MongoDB.Driver" Version="2.11.5" />
+      <PackageReference Include="NAudio" Version="2.0.0-beta1" />
     </ItemGroup>
     
     <ItemGroup>
