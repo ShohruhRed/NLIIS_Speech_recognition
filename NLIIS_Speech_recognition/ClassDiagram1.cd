@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="NLIIS_Speech_recognition.MainWindow">
+    <Position X="9.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAIiAAAAAEAAAAABAAAAAAAAAAACCQAAAEA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NLIIS_Speech_recognition.Services.SpeechRecognizer">
+    <Position X="7.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAACAAAAAAAAGAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Services\SpeechRecognizer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NLIIS_Speech_recognition.Services.Paragraph">
+    <Position X="12.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Services\EssayComposer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NLIIS_Speech_recognition.Services.Sentence">
+    <Position X="10.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAEAAAAAAACAAAAAAAAAACAABAAA=</HashCode>
+      <FileName>Services\EssayComposer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NLIIS_Speech_recognition.Services.EssayComposer">
+    <Position X="14.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAQAAABEAQAIAgAAAAIAAEMAAAgAAAAAAAAAABAEAA=</HashCode>
+      <FileName>Services\EssayComposer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NLIIS_Speech_recognition.Services.DocumentService">
+    <Position X="2.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAgAgACAAAAAAAAAAAAAAAAAAAAkAEAAEAAAAAAAI=</HashCode>
+      <FileName>Services\DocumentService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NLIIS_Speech_recognition.Services.Distancer">
+    <Position X="5.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Distancer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NLIIS_Speech_recognition.Services.AudioRecorder">
+    <Position X="5.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAEAEAAABAAAAAAACAAAAAAkAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\AudioRecorder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NLIIS_Speech_recognition.Services.Actor">
+    <Position X="2.75" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Services\Actor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NLIIS_Speech_recognition.Services.Action">
+    <Position X="7.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAEAAAAAEAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Services\Action.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NLIIS_Speech_recognition.Services.CreateNoteAction">
+    <Position X="10.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAEAAgAAAAAAAAAAAAQAAAAAI=</HashCode>
+      <FileName>Services\Action.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NLIIS_Speech_recognition.Services.PlayAuthorCompositionsAction">
+    <Position X="7.5" Y="14.75" Width="1.5" />
+    <InheritanceLine Type="NLIIS_Speech_recognition.Services.Action" FixedToPoint="true">
+      <Path>
+        <Point X="8.25" Y="13.19" />
+        <Point X="8.25" Y="14.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAEAAgAAAAAAAAAAAAQAAAAAI=</HashCode>
+      <FileName>Services\Action.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NLIIS_Speech_recognition.Services.CreateEssayAction">
+    <Position X="13.25" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIgAAAAAAAAEAAgAQAAAAAAAAAAQAAAAAI=</HashCode>
+      <FileName>Services\Action.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

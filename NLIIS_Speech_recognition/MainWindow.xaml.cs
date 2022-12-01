@@ -34,7 +34,7 @@ namespace NLIIS_Speech_recognition
         
         private void Authors_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Group 721701:\nSemenikhin Nikita,\nStryzhych Angelika", "Authors");
+            MessageBox.Show("Group 721701:\nSemenikhin Nikita,\nStryzhych Angelika\n\nADDED speech synthesis by students of group 921731", "Authors");
         }
 
         private void ChangeAnalyzerLanguage(object sender, RoutedEventArgs e)

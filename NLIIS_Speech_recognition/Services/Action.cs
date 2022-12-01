@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows.Media;
+using System.Speech.Synthesis;
+
 
 namespace NLIIS_Speech_recognition.Services
 {
@@ -37,7 +40,7 @@ namespace NLIIS_Speech_recognition.Services
             { "Russian", new[] { "созда", "замет", "об", "автор" } },
             { "English", new[] { "create", "note", "about", "author" } }
         };
-        
+
         protected override bool IsApplicable(string action, string language)
         {
             var createWordIndex = action.IndexOf(_keywords[language].ElementAt(0), StringComparison.Ordinal);
@@ -50,6 +53,15 @@ namespace NLIIS_Speech_recognition.Services
 
         public override string Run(string action, string language)
         {
+            SpeechSynthesizer synth = new SpeechSynthesizer();
+
+
+            // Configure the audio output.   
+            synth.SetOutputToDefaultAudioDevice();
+
+            // Speak a string.  
+            synth.Speak(action);
+
             var actualText = new string(action);
             var symbolMathPattern = DocumentService.GetSymbolsMatchPattern() + "*";
             var author = GetAuthor(action, language);
@@ -62,7 +74,7 @@ namespace NLIIS_Speech_recognition.Services
 
             actualText = actualText.Replace(author, string.Empty);
             actualText = actualText.Trim();
-            
+
             var path = DocumentService.ToFile(actualText, $"{author}_note");
 
             return "Note saved at " + path;
@@ -79,8 +91,8 @@ namespace NLIIS_Speech_recognition.Services
             {
                 authorEndIndex = authorStartIndex;
             }
-            
-            author = author.Substring(authorStartIndex,authorEndIndex == authorStartIndex
+
+            author = author.Substring(authorStartIndex, authorEndIndex == authorStartIndex
                 ? author.Length - authorEndIndex
                 : authorEndIndex - authorStartIndex);
 
@@ -90,6 +102,7 @@ namespace NLIIS_Speech_recognition.Services
 
     public class PlayAuthorCompositionsAction : Action
     {
+        
         protected override IDictionary<string, string> Descriptions { get; set; } = new Dictionary<string, string>
         {
             { "Russian", "включи произведения" },
@@ -101,7 +114,7 @@ namespace NLIIS_Speech_recognition.Services
             { "Russian", new[] { "включ", "произведен" } },
             { "English", new[] { "play", "composition" } }
         };
-        
+
         protected override bool IsApplicable(string action, string language)
         {
             var createWordIndex = action.IndexOf(_keywords[language].ElementAt(0), StringComparison.Ordinal);
@@ -111,7 +124,7 @@ namespace NLIIS_Speech_recognition.Services
             {
                 return false;
             }
-            
+
             return Distancer.GetDistance(Descriptions[language], action) > 1 &&
                    createWordIndex < compWordIndex;
         }
@@ -119,6 +132,15 @@ namespace NLIIS_Speech_recognition.Services
         public override string Run(string action, string language)
         {
             var mediaPlayer = new MediaPlayer();
+            SpeechSynthesizer synth = new SpeechSynthesizer();
+
+
+            // Configure the audio output.   
+            synth.SetOutputToDefaultAudioDevice();
+
+            // Speak a string.  
+            synth.Speak(action);
+
 
             var author = GetAuthor(action, language);
             var directoryInfo = new DirectoryInfo($"D:\\comp\\{author}");
@@ -127,6 +149,7 @@ namespace NLIIS_Speech_recognition.Services
 
             mediaPlayer.Open(new Uri(mp3File.FullName));
             mediaPlayer.Play();
+            Thread.Sleep(15000);
 
             return $"Enjoy {author}'s literature!";
         }
@@ -136,7 +159,7 @@ namespace NLIIS_Speech_recognition.Services
             var author = new string(action);
             author = Regex.Matches(author, DocumentService.GetWordMatchPattern()).Last().Value;
 
-            return author.Trim().Substring(0, language.Equals("English") ? author.Length : author.Length - 2);
+            return author.Trim().Substring(0, language.Equals("English") ? author.Length : author.Length - 1);
         }
     }
 
@@ -153,7 +176,7 @@ namespace NLIIS_Speech_recognition.Services
             { "Russian", new[] { "созда", "реферат", "произведен" } },
             { "English", new[] { "create", "essay", "composition" } }
         };
-        
+
         protected override bool IsApplicable(string action, string language)
         {
             var createWordIndex = action.IndexOf(_keywords[language].ElementAt(0), StringComparison.Ordinal);
@@ -170,7 +193,7 @@ namespace NLIIS_Speech_recognition.Services
             var author = GetAuthor(action);
             var text = DocumentService.FromFile($"D:\\comp\\{author}\\{comp}.txt");
             var essay = CreateEssay(text);
-            
+
             var path = DocumentService.ToFile(essay, $"{author}_{comp}_essay");
 
             return "Essay saved at " + path;
@@ -200,6 +223,26 @@ namespace NLIIS_Speech_recognition.Services
         private string CreateEssay(string text)
         {
             return new EssayComposer().Compose(text);
+        }
+        
+    }
+    public class CleanRecycleAction : Action
+    {
+        protected override IDictionary<string, string> Descriptions { get; set; } = new Dictionary<string, string>
+            {
+                { "Russian", "очистить корзину" },
+                { "English", "create note about author" }
+            };
+
+        private readonly IDictionary<string, IEnumerable<string>> _keywords = new Dictionary<string, IEnumerable<string>>
+            {
+                { "Russian", new[] { "очисти корзин" } },
+                { "English", new[] { "create", "note", "about", "author" } }
+            };
+
+        public override string Run(string action, string language)
+        {
+            throw new NotImplementedException();
         }
     }
 }

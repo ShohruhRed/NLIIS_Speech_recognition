@@ -8,7 +8,8 @@ namespace NLIIS_Speech_recognition.Services
         {
             new CreateNoteAction(),
             new PlayAuthorCompositionsAction(),
-            new CreateEssayAction()
+            new CreateEssayAction(),
+            new CleanRecycleAction()
         };
 
         public string Act(string stringAction, string language)
